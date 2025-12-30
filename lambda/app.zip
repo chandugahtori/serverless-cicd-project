@@ -1,0 +1,3 @@
+cd lambda
+zip app.zip app.py
+cd ..
