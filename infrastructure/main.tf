@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "pipeline_bucket" {
-  bucket = "event-driven-pipeline-bucket"
+  bucket = "anshugahtori-event-pipeline-001"
 }
 
 resource "aws_iam_role" "lambda_role" {
@@ -62,7 +62,7 @@ resource "aws_lambda_function" "capture_lambda" {
   role          = aws_iam_role.lambda_role.arn
   handler       = "app.lambda_handler"
   runtime       = "python3.9"
-  filename      = "lambda_capture.zip"
+  filename      = "../lambda/lambda_capture.zip"
 }
 
 resource "aws_lambda_function" "report_lambda" {
@@ -70,7 +70,7 @@ resource "aws_lambda_function" "report_lambda" {
   role          = aws_iam_role.lambda_role.arn
   handler       = "report_lambda.lambda_handler"
   runtime       = "python3.9"
-  filename      = "lambda_report.zip"
+  filename      = "../lambda/lambda_report.zip"
 }
 
 resource "aws_cloudwatch_event_rule" "daily_trigger" {
