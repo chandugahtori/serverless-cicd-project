@@ -7,7 +7,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 s3 = boto3.client('s3')
-BUCKET_NAME = "event-driven-pipeline-bucket"
+BUCKET_NAME = "anshugahtori-event-pipeline-001"
 
 def lambda_handler(event, context):
     try:
